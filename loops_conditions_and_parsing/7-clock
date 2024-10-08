@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+hours=0
+minutes=1
+
+# Loop through hours 0 to 12
+while [ $hours -le 12 ]; do
+    # Loop through minutes 1 to 59
+    while [ $minutes -le 59 ]; do
+        printf "%02d:%02d\n" $hours $minutes
+        minutes=$((minutes + 1))
+    done
+    minutes=1  # Reset minutes to 1 after each hour
+    hours=$((hours + 1))
+done | head -n 70  # Display only the first 70 lines
+
